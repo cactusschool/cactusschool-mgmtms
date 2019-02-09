@@ -24,10 +24,11 @@ public class ModuleMasterController {
     private ModuleMasterRepository moduleMasterRepo;
 
     @GET
+    @Path("/test")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<ModuleDetails> getAll() {
+    public String getAll() {
         // Return the DTO List:
-        return null;
+        return "Test";
     }
 
     @GET

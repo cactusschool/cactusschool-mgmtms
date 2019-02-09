@@ -19,11 +19,11 @@ public class TenantNameFilter implements ContainerRequestFilter {
             return;
         }
 
-        if(!headers.containsKey("X-TenantID")) {
+        if(!headers.containsKey("X-DatabaseName")) {
             return;
         }
 
-        String tenantName = headers.getFirst("X-TenantID");
+        String tenantName = headers.getFirst("X-DatabaseName");
 
         if(tenantName == null) {
             return;

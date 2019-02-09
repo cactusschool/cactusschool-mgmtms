@@ -12,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.ashish.cactus.school.notice.admin.db.repositories.SchoolMasterRepository;
 import com.ashish.cactus.school.notice.db.model.ModuleMaster;
 import com.ashish.cactus.school.notice.db.repositories.ModuleMasterRepository;
 import com.ashish.cactus.school.notice.input.ModuleDetails;
@@ -23,12 +24,22 @@ public class ModuleMasterController {
 	@Autowired
     private ModuleMasterRepository moduleMasterRepo;
 
+	@Autowired
+	private SchoolMasterRepository schoolMasterRepo;
+	
     @GET
     @Path("/test")
     @Produces(MediaType.APPLICATION_JSON)
     public String getAll() {
         // Return the DTO List:
-        return "Test";
+    	String contextRoot = null;
+    	try {
+    		contextRoot = schoolMasterRepo.findById(1).get().getContextRoot();
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    	return contextRoot;
+//        return "Test";
     }
 
     @GET

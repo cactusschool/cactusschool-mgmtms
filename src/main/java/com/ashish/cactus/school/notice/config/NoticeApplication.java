@@ -21,7 +21,7 @@ public class NoticeApplication extends SpringBootServletInitializer {
         Properties defaultProperties = new Properties();
 
         // Set sane Spring Hibernate properties:
-        defaultProperties.put("spring.jpa.show-sql", "true");
+        defaultProperties.put("spring.jpa.show-sql", "false");
         defaultProperties.put("spring.jpa.hibernate.naming.physical-strategy", "org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl");
         defaultProperties.put("spring.datasource.initialize", "false");
 

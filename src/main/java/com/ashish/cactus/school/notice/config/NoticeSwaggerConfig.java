@@ -15,7 +15,7 @@ public class NoticeSwaggerConfig {
 	
 	//http://localhost:8080/v2/api-docs
 	// http://localhost:8080/swagger-ui.html
-	@Bean
+//	@Bean
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()

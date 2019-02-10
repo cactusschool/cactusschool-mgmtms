@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Component;
 
 import com.ashish.cactus.school.notice.admin.db.repositories.SchoolMasterRepository;
@@ -45,6 +46,7 @@ public class ModuleMasterController {
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
+    //@PreAuthorize("hasAnyRole('ROLE_ADMIN_CREATE','ROLE_ADMIN_UPDATE','ROLE_PRINCIPAL_CREATE')")
     public ModuleMaster get(@PathParam("id") int id) {
     	Optional<ModuleMaster> customer = moduleMasterRepo.findById(id);
 

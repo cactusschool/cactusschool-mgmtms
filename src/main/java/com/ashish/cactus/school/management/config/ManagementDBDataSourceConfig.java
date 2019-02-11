@@ -27,7 +27,7 @@ import com.zaxxer.hikari.HikariDataSource;
 @PropertySource(ignoreResourceNotFound=false, value="${spring.database.config.location}")
 @EntityScan(basePackages={"com.ashish.cactus.school.management.db.model","com.ashish.cactus.school.management.admin.db.model"})
 @EnableJpaRepositories(basePackages = {"com.ashish.cactus.school.management.db.repositories","com.ashish.cactus.school.management.admin.db.repositories"})
-public class NoticeDBDataSourceConfig {
+public class ManagementDBDataSourceConfig {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	
@@ -36,7 +36,7 @@ public class NoticeDBDataSourceConfig {
 	
 	@Bean
 	@Primary
-    public DataSource noticeDataSource() {
+    public DataSource managementDataSource() {
 
         AbstractRoutingDataSource dataSource = new TenantAwareRoutingSource();
 
@@ -105,45 +105,4 @@ public class NoticeDBDataSourceConfig {
 
 	        return dataSource;
 	}
-	 
-    private DataSource tenantOne() {
-
-        HikariDataSource dataSource = new HikariDataSource();
-
-        dataSource.setInitializationFailTimeout(0);
-        dataSource.setMaximumPoolSize(Integer.parseInt(env.getProperty("spring.jpa.max.connection.pool")));
-        dataSource.setDataSourceClassName(env.getProperty("spring.mysql.datasource"));
-        dataSource.addDataSourceProperty("url", env.getProperty("spring.datasource.server.ip") + "/" + "tenant1");
-        dataSource.addDataSourceProperty("user", env.getProperty("spring.datasource.username"));
-        dataSource.addDataSourceProperty("password", env.getProperty("spring.datasource.password"));
-
-        return dataSource;
-    }
-
-    private DataSource tenantTwo() {
-
-        HikariDataSource dataSource = new HikariDataSource();
-
-        dataSource.setInitializationFailTimeout(0);
-        dataSource.setMaximumPoolSize(Integer.parseInt(env.getProperty("spring.jpa.max.connection.pool")));
-        dataSource.setDataSourceClassName(env.getProperty("spring.mysql.datasource"));
-        dataSource.addDataSourceProperty("url", env.getProperty("spring.datasource.server.ip") + "/" + "tenant2");
-        dataSource.addDataSourceProperty("user", env.getProperty("spring.datasource.username"));
-        dataSource.addDataSourceProperty("password", env.getProperty("spring.datasource.password"));
-        return dataSource;
-    }
-    
-    private DataSource cactusschoolAdmin() {
-
-        HikariDataSource dataSource = new HikariDataSource();
-
-        dataSource.setInitializationFailTimeout(0);
-        dataSource.setMaximumPoolSize(Integer.parseInt(env.getProperty("spring.jpa.max.connection.pool")));
-        dataSource.setDataSourceClassName(env.getProperty("spring.mysql.datasource"));
-        dataSource.addDataSourceProperty("url", env.getProperty("spring.datasource.server.ip") + "/" + "cactusschool_admin");
-        dataSource.addDataSourceProperty("user", env.getProperty("spring.datasource.username"));
-        dataSource.addDataSourceProperty("password", env.getProperty("spring.datasource.password"));
-
-        return dataSource;
-    }
 }

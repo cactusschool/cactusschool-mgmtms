@@ -24,17 +24,16 @@ public class ModuleMasterController {
     private AcademicYearMasterRepository academicMasterRepo;
 
 	@Autowired
-	private AdminSchoolMasterRepository schoolMasterRepo;
+	private AdminSchoolMasterRepository adminSchoolMasterRepo;
 	
     @GET
     @Path("/test")
     @Produces(MediaType.APPLICATION_JSON)
-    public String getAll(Authentication authentication) {
+    public String getAll() {
         // Return the DTO List:
     	String contextRoot = null;
     	try {
-    		System.out.println(authentication.getName());
-    		contextRoot = schoolMasterRepo.findById(1).get().getContextRoot();
+    		contextRoot = adminSchoolMasterRepo.findById(1).get().getContextRoot();
     	} catch(Exception e) {
     		e.printStackTrace();
     	}

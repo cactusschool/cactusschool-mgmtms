@@ -9,11 +9,11 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class },
 							scanBasePackages={"com.ashish"})
-public class NoticeApplication extends SpringBootServletInitializer {
+public class ManagementApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		 new NoticeApplication()
-         .configure(new SpringApplicationBuilder(NoticeApplication.class))
+		 new ManagementApplication()
+         .configure(new SpringApplicationBuilder(ManagementApplication.class))
          .properties(getDefaultProperties())
          .run(args);
 	}

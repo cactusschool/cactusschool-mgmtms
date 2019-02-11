@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @Aspect
-public class NoticeLoggingAspect {
+public class ManagementLoggingAspect {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Around("execution(* com.ashish.cactus.school.management.services.*.*(..)) || "

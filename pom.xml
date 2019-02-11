@@ -9,7 +9,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ashish.cactus.school</groupId>
-	<artifactId>cactusschool-noticems</artifactId>
+	<artifactId>cactusschool-mgmtms</artifactId>
 	<version>1.0</version>
 	<name>Notice</name>
 	<description>Demo project for Spring Boot</description>

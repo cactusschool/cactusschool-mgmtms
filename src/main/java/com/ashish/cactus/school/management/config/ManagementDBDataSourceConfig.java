@@ -42,7 +42,6 @@ public class ManagementDBDataSourceConfig {
 
         Map<Object,Object> targetDataSources = new HashMap<>();
 
-//        targetDataSources.put("cactusschool_admin", addSchoolDatabase("cactusschool_admin"));
         String databases = env.getProperty("school.database.names");
         List<String> allDatabases = Arrays.asList(databases.split("\\s*,\\s*"));
     	for(String databaseName: allDatabases) {
